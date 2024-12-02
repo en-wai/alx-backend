@@ -8,7 +8,7 @@
     "dev": "nodemon --exec babel-node --presets @babel/preset-env"
   },
   "keywords": [],
-  "author": "",
+  "author": "En-wai Asare",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.25.9",
