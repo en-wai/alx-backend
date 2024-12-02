@@ -1,12 +1,18 @@
 // Import the Redis library using ES6 import syntax
 import { createClient } from 'redis';
-
+// Import 'print' for confirmation messages
+import { print } from 'redis/lib/utils'; 
 // Create a Redis client
 const client = createClient();
 
 // Handle successful connection
 client.on('connect', () => {
   console.log('Redis client connected to the server');
+   // Call the functions after the client is connected
+  displaySchoolValue('Holberton'); // Retrieve the value for 'Holberton' (initially may not exist)
+  setNewSchool('HolbertonSanFrancisco', '100'); // Set a new key-value pair
+  displaySchoolValue('HolbertonSanFrancisco'); // Retrieve the value for 'HolbertonSanFrancisco'
+  
 });
 
 // Handle connection errors
@@ -35,6 +41,7 @@ function displaySchoolValue(schoolName) {
       console.log(value); // Log the retrieved value
     }
   });
+}
 
 
 // Connect the client (asynchronous function)
@@ -46,7 +53,4 @@ function displaySchoolValue(schoolName) {
   }
 })();
 
-// Call the functions to demonstrate functionality
-displaySchoolValue('Holberton'); // Retrieve the value for 'Holberton' (initially may not exist)
-setNewSchool('HolbertonSanFrancisco', '100'); // Set a new key-value pair
-displaySchoolValue('HolbertonSanFrancisco'); // Retrieve the value for 'HolbertonSanFrancisco'
+
